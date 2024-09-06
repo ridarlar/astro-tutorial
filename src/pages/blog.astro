@@ -1,0 +1,19 @@
+---
+import Navigation from '../components/Navigation.astro'
+import '../styles/global.css'
+import Layout from '../layouts/Layout.astro'
+const allPosts= await Astro.glob('./posts/*.md')
+import BlogPost from '../components/BlogPost.astro'
+const pageTitle="Blog page"
+---
+<Layout
+  title={pageTitle}
+>
+    <h1>{pageTitle}</h1>
+    <p>This is my personal blog</p>
+    <ul>
+      {
+        allPosts.map(post=><BlogPost url={post.url} title={post.frontmatter.title}/>)
+      }
+    </ul>
+</Layout>

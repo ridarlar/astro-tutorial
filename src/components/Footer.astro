@@ -1,0 +1,30 @@
+---
+import Social from '../components/Social.astro'
+const platform = "github"
+const userName = "ridarlar"
+
+const socialMedias = [
+  {
+    platform:"github",
+    userName:"ridarlar"
+  },
+  {
+    platform:"linkedin",
+    userName:"in/richardaguillar"
+  },
+]
+---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  {
+    socialMedias.map(source => <p>Learn more about my projects on  <Social platform={source.platform} username={source.userName}/> !</p>)
+  }
+</footer>
